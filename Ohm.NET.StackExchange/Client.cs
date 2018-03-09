@@ -14,12 +14,12 @@ namespace Ohm.NET.StackExchange
         private List<Tuple<string, string[]>> CommandBuffer = new List<Tuple<string, string[]>>();
 
         public Client(string url="127.0.0.1:6379", int timeout=DefaultTimeout) {
-            Connection = TaskSync(() => ConnectionMultiplexer.ConnectAsync(url), timeout);
+            Connection = TaskSync(ConnectionMultiplexer.ConnectAsync(url), timeout);
             Database = Connection.GetDatabase();
         }
 
         public RedisRawResult Call(string command, params string[] arguments) =>
-        TaskSync(() => CallAsync(command, arguments));
+        TaskSync(CallAsync(command, arguments));
 
         public Task<RedisRawResult> CallAsync(string command, params string[] arguments)
         {
@@ -35,7 +35,7 @@ namespace Ohm.NET.StackExchange
         public void Clear() => CommandBuffer.Clear();
 
         public RedisRawResult[] Commit() => 
-        TaskSync(() => CommitAsync());
+        TaskSync(CommitAsync());
 
         public Task<RedisRawResult[]> CommitAsync()
         {
@@ -57,13 +57,13 @@ namespace Ohm.NET.StackExchange
 
         public void Configure(string url)
         {
-            Connection = TaskSync(() => ConnectionMultiplexer.ConnectAsync(url), DefaultTimeout);
+            Connection = TaskSync(ConnectionMultiplexer.ConnectAsync(url), DefaultTimeout);
             Database = Connection.GetDatabase();
         }
 
         public void Configure(string url, int timeout)
         {
-            Connection = TaskSync(() => ConnectionMultiplexer.ConnectAsync(url), timeout);
+            Connection = TaskSync(ConnectionMultiplexer.ConnectAsync(url), timeout);
             Database = Connection.GetDatabase();
         }
 
@@ -74,7 +74,11 @@ namespace Ohm.NET.StackExchange
 
         public void Quit()
         {
-            throw new System.NotImplementedException();
+            QuitAsync().Wait();
+        }
+
+        public Task QuitAsync() {
+            return CallAsync("QUIT");
         }
 
         public void Timeout()
@@ -82,9 +86,8 @@ namespace Ohm.NET.StackExchange
             throw new System.NotImplementedException();
         }
 
-        private T TaskSync<T>(Func<Task<T>> clojure, Nullable<int> timeout = null)
+        private T TaskSync<T>(Task<T> task, Nullable<int> timeout = null)
         {
-            var task = Task.Run(clojure);
             if (timeout.HasValue) {
                 if (task.Wait(timeout.GetValueOrDefault()))
                     return task.Result;

@@ -14,5 +14,6 @@ namespace Ohm.NET.Services
         Task<RedisRawResult[]> CommitAsync();
         void Timeout();
         void Quit();
+        Task QuitAsync();
     }
 }
