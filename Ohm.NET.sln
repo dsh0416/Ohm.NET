@@ -1,0 +1,35 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ohm.NET", "Ohm.NET\Ohm.NET.csproj", "{B0F6EE81-3A92-45AD-9278-41693010C313}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ohm.NET.Test", "Ohm.NET.Test\Ohm.NET.Test.csproj", "{1D6A126A-2E41-41F3-9624-A43C7A8448FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ohm.NET.StackExchange", "Ohm.NET.StackExchange\Ohm.NET.StackExchange.csproj", "{0ADA11FF-9C5E-42D7-9443-F58FB30078B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0F6EE81-3A92-45AD-9278-41693010C313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0F6EE81-3A92-45AD-9278-41693010C313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0F6EE81-3A92-45AD-9278-41693010C313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0F6EE81-3A92-45AD-9278-41693010C313}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D6A126A-2E41-41F3-9624-A43C7A8448FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D6A126A-2E41-41F3-9624-A43C7A8448FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D6A126A-2E41-41F3-9624-A43C7A8448FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D6A126A-2E41-41F3-9624-A43C7A8448FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ADA11FF-9C5E-42D7-9443-F58FB30078B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ADA11FF-9C5E-42D7-9443-F58FB30078B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ADA11FF-9C5E-42D7-9443-F58FB30078B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ADA11FF-9C5E-42D7-9443-F58FB30078B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.StandardHeader = $2
+	EndGlobalSection
+EndGlobal
